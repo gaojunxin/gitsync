@@ -1,0 +1,27 @@
+{
+    "authentication": {
+        "source": {
+            "username":"admin",
+            "password":"admin"
+        },
+        "target": {
+            "username":"admin",
+            "password":"admin"
+        }
+    },
+
+    "repository":[
+        {
+        "name":"demo",
+        "source": {
+            "url":"https://github.com/gaojunxin/gitsync.git",
+            "branch":"develop",
+            "authentication": ""
+        },
+        "target": {
+            "url":"https://github.com/xxxx/gitsync.git",
+            "branch":"develop",
+            "authentication": ""
+        }
+    }]
+}
