@@ -9,14 +9,6 @@ import urllib.parse
 import argparse
 import json
 
-# 参数格式：gitsync -susername=xxx -spassword=xxx -tusername=xxx -tpassword=xxx
-# 配置文件格式
-# {
-#     "osp-react-base":{
-#         "source":"https://git.openserver.cn:8089/osp-react/osp-react-base.git",
-#         "target":"https://git.openserver.cn:8089/osp-react/osp-react-base.git"
-#     }
-# }
 
 
 class Logger(object):
@@ -120,13 +112,12 @@ class GitSync():
         name = config['name']
         projectPath = os.path.join(self.workspace, name)
         if os.path.exists(projectPath):
-            os.system('rm "{}"'.format(projectPath))
             shutil.rmtree(projectPath)
             print(f"文件夹 {projectPath} 已成功删除")
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='GitSync')
-    parser.add_argument('-w', '--workspace', type=str, default='./', help='工作空间路径')
+    parser.add_argument('-w', '--workspace', type=str, default=os.getcwd(), help='工作空间路径')
     
     subparsers = parser.add_subparsers(dest='command')
     
